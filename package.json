@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts"
+    "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
+    "lint": "eslint src/ --no-cache",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "yarn lint"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -17,6 +24,8 @@
     "dotenv": "^16.4.5",
     "eslint": "8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
